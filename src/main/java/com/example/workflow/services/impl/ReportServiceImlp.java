@@ -69,7 +69,7 @@ public class ReportServiceImlp implements ReportService {
     @Override
     public String exportReportOrder(Long id,  String reportFormat) throws FileNotFoundException, JRException {
         //tạo JasperReport
-        String jasperFilePath = "D:\\FPT IS\\Intern\\camunda\\test\\camunda_demo_asm\\src\\main\\resources\\bill.jasper";
+        String jasperFilePath = "D:\\FPT IS\\Intern\\camunda\\test\\asm-final-thanhcn3\\src\\main\\resources\\bill.jasper";
         JasperReport jasperReport = (JasperReport) JRLoader.loadObject(ResourceUtils.getFile(jasperFilePath));
         //lấy thông tin người dùng
         Order order = salesOrderRepository.findOrderDTO(id);

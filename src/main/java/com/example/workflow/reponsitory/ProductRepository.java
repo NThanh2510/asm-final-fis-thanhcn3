@@ -26,7 +26,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
         "  FULL JOIN Category c on sc.categoryId = c.categoryId" +
         " FULL JOIN Os os on os.id = ts.osId" +
         " WHERE p.productId = ?1 ")
-ProductListOptionResponse findByIdProductListOption(Long id);
+    ProductListOptionResponse findByIdProductListOption(Long id);
 
     @Query("SELECT new com.example.workflow.dto.admin.products.response.ProductsResponse(" +
             "p.productId, c.name, sc.name, p.name, p.mainImage, p.basePrice, p.warranty, p.createdDate)" +
@@ -35,6 +35,7 @@ ProductListOptionResponse findByIdProductListOption(Long id);
             " JOIN Category c on c.categoryId = sc.categoryId"
            )
     List<ProductsResponse> findAllProducts();
+
 
 
 

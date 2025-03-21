@@ -35,4 +35,5 @@ public class SalesOrder {
 
     @Column(name = "idprocess")
     private String idprocess;
+
 }

@@ -49,9 +49,6 @@ public class UserServiceImpl implements UserService {
 
     private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
-
-
-
     @Override
     public List<User> getAllProfiles() {
         List<User> users = userRepository.findAll();

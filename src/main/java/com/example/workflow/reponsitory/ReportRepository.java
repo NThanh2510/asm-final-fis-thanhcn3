@@ -23,6 +23,7 @@ public interface ReportRepository extends JpaRepository<SalesOrder, Long>  {
             "FROM SalesOrder s " +
             "WHERE " +
             "s.status NOT LIKE 'CANCEL'" +
+            " AND s.status NOT LIKE 'PENDING'" +
             "AND s.orderDate >= :startDate " +
             "AND s.orderDate <= :endDate " +
             " GROUP BY " +
@@ -47,6 +48,7 @@ public interface ReportRepository extends JpaRepository<SalesOrder, Long>  {
             " WHERE so.orderDate > :startDate" +
             " AND so.orderDate < :endDate" +
             " AND so.status NOT LIKE 'CANCEL'" +
+            " AND so.status NOT LIKE 'PENDING'" +
             " GROUP BY c.categoryId")
     List<CountProductCategoryResponse> findCountProductCategoryByDate(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
 
@@ -60,6 +62,8 @@ public interface ReportRepository extends JpaRepository<SalesOrder, Long>  {
             "EXTRACT(MONTH FROM so.orderDate), SUM(so.totalPrice))" +
             " FROM SalesOrder so" +
             " WHERE EXTRACT(YEAR FROM so.orderDate) = :year" +
+            " AND so.status NOT LIKE 'CANCEL'" +
+            " AND so.status NOT LIKE 'PENDING'" +
             " GROUP BY EXTRACT(MONTH FROM so.orderDate)" +
             " ORDER BY  EXTRACT(MONTH FROM so.orderDate)")
     List<MonthlyRevenueResponse> getMonthlyRevenue(Integer year);

@@ -2,6 +2,7 @@ package com.example.workflow.services.impl;
 
 
 import com.example.workflow.dto.admin.sale.request.SaleDetailRequest;
+import com.example.workflow.entity.ProductOption;
 import com.example.workflow.entity.SalesOrder;
 import com.example.workflow.entity.SalesOrderDetail;
 import com.example.workflow.entity.User;
